@@ -1,0 +1,14 @@
+{
+  "name": "json-server-tutorial",
+  "description": "Tutorial creating a simple APP using using json-server to create JSON data API",
+  "version": "0.1.5",
+  "author": "Net Nninja",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": ""
+  },
+  "scripts": {
+    "start": "echo npm ERROR: * You must be in an app folder to start app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

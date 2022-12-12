@@ -1,0 +1,216 @@
+<html>
+  <head>
+    <title>Test Links Page</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+//          width           = 1200   // 1184
+            width           = 1050   //
+            height          = 2100
+    </script>
+    <style>
+        body {
+            font-family     : arial;
+            size            : 10px;
+            background-color: #EEEEEE;
+            }
+        td {
+            vertical-align  : top;
+            }
+        .title {
+            margin-top      : 8px;
+            }
+        a:visited, a:link {
+            color           : black;
+            text-decoration : none;
+            }
+        iframe {
+            display         : none;
+            padding         : 4px;
+            background-color: #A4A6F7;
+            vertical-align  : top;
+            }
+        #url {
+            padding-bottom  :  6px;
+            }
+        input {
+            width           : 38px;
+            }
+        .size1 {
+            padding         :  0px;
+            margin-right    :-10px;
+            }
+        .newTab: {
+           width            : 12px !important;
+            }
+    </style>
+  </head>
+  <body>
+
+    <table>
+      <tr>
+        <td width="600px">
+
+          <ol>
+
+            <li><a href="http://basec.sicomm.net/nfs/u04/help/blank.html">CLEAR</a>
+              &nbsp; &nbsp; Open in new tab: <input id="new-tab" style="margin-left:-15px;" type="checkbox">
+              <span id="size">
+                <input type="radio" class="size" name="size" value="small" >Small
+                <input type="radio" class="size" name="size" value="medium">Medium
+                <input type="radio" class="size" name="size" value="large" >Large
+              </span>
+            </li>
+
+            <!-- ------- --------------------------------------------------  ------------------ --------------- -->
+
+            <div  class="title"><u><b>Remote Sites</b></u></div>
+
+              <li><a href="http://formr.net"                                          >formR.Net</a></li>
+              <li><a href="http://iodd.com"                                           >IODD.com</a></li>
+
+            <!-- ------- --------------------------------------------------  ------------------ --------------- -->
+
+            <div class="title"><u><b>json-server examples</b></u></div>
+
+              <li><a href="http://localhost:3000/posts"                               >posts                        </a></li>
+              <li><a href="http://localhost:3000/posts?id=3"                          >posts?id=3                   </a></li>
+              <li><a href="http://localhost:3000/posts?likes_gte=20"                  >posts?likes_gte=20           </a></li>
+              <li><a href="http://localhost:3000/posts?title_like=new"                >posts?title_like=new         </a></li>
+              <li><a href="http://localhost:3000/posts?id_gte=5" onclick="Link_onPost()" >posts?method=post, ...    </a></li>
+              <li><a href="http://localhost:3000/posts?_sort=likes&_order=desc"       >posts?_sort=likes&_order=desc</a></li>
+              <li><a href="http://localhost:3000/posts?_page=1"                       >posts?_page=1                </a></li>
+              <li><a href="http://localhost:3000/posts?_page=1&_limit=2"              >posts?_page=1&_limit=2       </a></li>
+              <li><a href="http://localhost:3000/posts?_start=2&_end=3"               >posts?_start=2&_end=3        </a></li>
+              <li><a href="http://localhost:3000/polls"                               >polls                        </a></li>
+
+            <!-- ------- --------------------------------------------------  ------------------ --------------- -->
+
+          </ol>
+        </td>
+        <td>
+          <div id="URL" ></div>
+          <iframe src=""></iframe>
+        </td>
+      </tr>
+    </table>
+
+  <!-- End of Test-Sites.html -------------------------------------------- -->
+
+  </body>
+
+  <!-- Beginning of Test-Sites.html JavaScript code ---------------------- -->
+
+  <script>
+            $( "a"      ).click( Link_onClick )
+//          $( ".size1" ).click( Size_onClick )
+//          $( '#new_tab' ).prop( 'checked', true )
+            console.log( $._data( $( 'a' )[3], "events").click[0].handler )
+            console.log( $( $( 'a' )[3] ).html )
+
+// -------- ------------------------------------------------------------------
+
+  async function Link_onPost( ) {
+
+      var pDoc = {
+            title: "A New Blog Post",
+            body:  "Some text",
+            likes:  0,
+            }
+
+      var pPost = {
+            method:    'POST',
+            body:       JSON.stringify (pDoc ),
+            headers: { 'Content-Type': 'application/json' }
+            }
+
+     await fetch('http://localhost:3000/posts', pPost )
+
+            }
+// -------- ------------------------------------------------------------------
+
+  function  Link_onClick1( e ) {
+        var aStyle = `display: block; width: ${width}px; height: ${height}px;`
+        var aDate  = (new Date).toUTCString(); aDate  = aDate.substr(8,4) + aDate.substr(5,3) + aDate.substr(17,8)
+
+        var pLink  = $( this )
+        var aLink1 =  pLink.attr( 'href' ),    aPort  =  pLink[0].childNodes[1] ? pLink[0].childNodes[1].value : ''
+            aLink1 =  aPort ? aLink1.replace( /{port}/, aPort ) : aLink1
+
+            alert( "Hello: " + aLink1 )
+            }
+// -------- ------------------------------------------------------------------
+
+  function  Link_onClick( ) {
+
+        var aStyle = `display: block; width: ${width}px; height: ${height}px;`
+        var aDate  = (new Date).toUTCString(); aDate  = aDate.substr(8,4) + aDate.substr(5,3) + aDate.substr(17,8)
+
+        var pLink  = $( this )
+//      var aLink1 =  pLink.attr( 'href' ),    aPort  =  pLink[0].childNodes[1].value                                   // .(21022.01.1 RAM fixed bug)
+        var aLink1 =  pLink.attr( 'href' ),    aPort  =  pLink[0].childNodes[1] ? pLink[0].childNodes[1].value : ''     // .(21022.01.1 RAM fixed bug)
+            aLink1 = (aPort) ? aLink1.replace( /{port}/, aPort ) : aLink1
+//          alert(`aLink1: ${aLink1}`)
+
+        var aURL   =  aDate + ": &nbsp; &nbsp;<b>" + aLink1.replace( /admin/, 'login') + "</b>"
+        var aTab   = (aLink1.match( /links|vendorlogin/ ) || $( '#new-tab' ).prop( 'checked' )) ? 'on'  : 'off'
+        var aTab   = (aLink1.match( /blank/             )                                     ) ? 'off' : aTab
+
+            aLink1 = chk_login( aLink1 )
+
+            $( '#URL'   ).html(  aURL + chk_size() )
+            $( ".size1" ).click( Size_onClick )
+
+            $( 'iframe' ).attr( 'style', aStyle )
+        if (aTab != 'on') {
+            $( 'iframe' ).attr( 'src',   aLink1 )
+        } else {
+        var pWin   =  window.open( aLink1, '_blank'); pWin.focus();
+            }
+     return false
+            }
+// -------- ------------------------------------------------------------------
+
+   function chk_login( aLink1 ) {
+        var aSite  =  aLink1.substr(7,5) + '-' + aLink1.substr(24,5)
+        var aLink2 = (aSite == "basec-login") ? '{URL}/loginhandler.html?{ANO}username={UID}&password={PWD}'   : aLink1
+            aLink2 = (aSite == "basec-admin") ? '{URL}/loginhandler.html?{ANO}username={UID}&password={PWD}'   : aLink2
+            aLink2 = (aSite == "basec-vendo") ? '{URL}/pe_system_login_handler.html?logonID={UID}&pswrd={PWD}' : aLink2
+            aLink2 = (aSite == "train-login") ? '{URL}/loginhandler.html?{ANO}username={UID}&password={PWD}'   : aLink2
+            aLink2 = (aSite == "train-admin") ? '{URL}/loginhandler.html?{ANO}username={UID}&password={PWD}'   : aLink2
+            aLink2 = (aSite == "train-vendo") ? '{URL}/pe_system_login_handler.html?logonID={UID}&pswrd={PWD}' : aLink2
+
+        var aLink3 = aLink1.replace( /admin/, 'login')
+        if (aLink1 != aLink2) {
+            mUser  =  $( "#" + aSite ).val().split( ':' )
+            aLink2 =  aLink2.replace( /{UID}/, mUser[0] )
+            aLink2 =  aLink2.replace( /{PWD}/, mUser[1] )
+            aLink2 =  aLink2.replace( /{ANO}/, ""       ) // agency_id=A00000000064&
+            aLink1 =  aLink2.replace( /{URL}/, aLink3   )
+            }
+     return aLink1
+            }
+// -------- ------------------------------------------------------------------
+
+   function chk_size( ) {
+        var aHTML = $( '#size' ).html();
+            $( '#size' ).hide()
+            aHTML = aHTML.replace( /class="size"/g, `class="size1"` )
+     return aHTML
+            }
+// -------- ------------------------------------------------------------------
+
+   function Size_onClick( ) {
+            var pSize   = $( this )
+            var aSize   =  pSize[0].value
+            var nWidth  = (aSize == 'small') ? 375 : ( aSize == 'medium' ? 900 : width  )
+            var nHeight = (aSize == 'small') ? 667 : ( aSize == 'medium' ? 750 : height )
+            var aStyle  = `display: block; width: ${nWidth}px; height: ${nHeight}px;`
+//          alert( `aSize: ${aSize}, aWidth: ${aWidth}, aStyle: ${aStyle}` )
+            $( 'iframe' ).attr( 'style',  aStyle )
+            }
+// -------- ------------------------------------------------------------------
+
+  </script>
+</html>
+
+

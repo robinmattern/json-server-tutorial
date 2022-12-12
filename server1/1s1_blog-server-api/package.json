@@ -1,0 +1,23 @@
+{
+  "name": "1s1_blog-server-api",
+  "version": "0.01.010",
+  "author": "Robin Mattern",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "scripts": {
+    "start":   "json-server --watch data/db.json"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
