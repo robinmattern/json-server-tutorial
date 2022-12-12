@@ -25,4 +25,3 @@
      - Right-click to `Open with Live Server`
      - Create, view and/or delete a blog post  
     
-    
