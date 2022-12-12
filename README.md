@@ -1,6 +1,6 @@
 # json-server-tutorial
 
-  1. Clone this repository. Execute these commands in Git-Bash   
+  1. Clone this repository executing these commands in Git-Bash   
      - ` cd /C/Repos`
      - ` git clone git clone https://github.com/robinmattern/json-server-tutorial.git` 
      - ` cd json-server-tutorial` <p>
