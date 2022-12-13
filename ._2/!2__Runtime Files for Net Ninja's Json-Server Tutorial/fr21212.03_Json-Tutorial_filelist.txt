@@ -1,0 +1,34 @@
+
+   File Size     Date    Time   /c/Repos/IODD_/json-server-tutorial/.
+  ----------  ----------------  ---------------------------------------------------------------------------
+           0  2022-12-12 14:23  ./!_601-03-2002_Net Ninja's Json-Server Tutorial (12-12-22)
+           0  2022-12-12 14:29  ./._2
+           0  2022-12-12 14:23  ./._2/!2__Runtime Files for Net Ninja's Json-Server Tutorial on Stage Main-Final
+          99  2022-12-08 12:12  ./IODD_json-server.code-workspace
+        1301  2022-12-13 07:50  ./README.md
+           0  2022-12-12 15:31  ./client1
+           0  2022-12-13 07:54  ./client1/._3c1
+           0  2022-12-12 14:23  ./client1/._3c1/!3c1__Runtime Files for Net Ninja's Json-Server Client1 Apps
+         898  2022-12-05 09:32  ./client1/package.json
+           0  2022-12-12 17:35  ./client1/1c1_blog-client-app
+         436  2022-12-12 16:40  ./client1/1c1_blog-client-app/package.json
+         584  2022-12-12 14:05  ./client1/1c1_blog-client-app/create.html
+         476  2022-12-12 15:58  ./client1/1c1_blog-client-app/details.html
+         673  2022-12-12 15:59  ./client1/1c1_blog-client-app/index.html
+         894  2022-12-12 13:57  ./client1/1c1_blog-client-app/styles.css
+           0  2022-12-12 13:57  ./client1/1c1_blog-client-app/js
+         641  2022-12-12 15:50  ./client1/1c1_blog-client-app/js/create.js
+         776  2022-12-12 14:11  ./client1/1c1_blog-client-app/js/details.js
+        1020  2022-12-12 15:16  ./client1/1c1_blog-client-app/js/index.js
+           0  2022-12-12 15:31  ./server1
+           0  2022-12-13 07:56  ./server1/._3s1
+           0  2022-12-13 07:54  ./server1/._3s1/!3s1__Runtime Files for Net Ninja's Json-Server Server1 Apps
+         419  2022-12-12 16:39  ./server1/package.json
+       76091  2022-12-12 14:40  ./server1/package-lock.json
+           0  2022-12-12 17:27  ./server1/1s1_blog-server-api
+           0  2022-12-12 17:28  ./server1/1s1_blog-server-api/data
+        5619  2022-12-12 17:36  ./server1/1s1_blog-server-api/data/db.json
+         457  2022-12-12 16:40  ./server1/1s1_blog-server-api/package.json
+          66  2022-12-12 17:28  ./server1/1s1_blog-server-api/startServer.sh
+        9433  2022-12-12 16:30  ./server1/1s1_blog-server-api/Test-Sites.html
+

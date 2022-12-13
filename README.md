@@ -1,5 +1,9 @@
 # json-server-tutorial
 
+This repository contains the working code based on two tuturial videos by Net Ninjs:   
+     - https://www.youtube.com/watch?v=mAqYJF-yxO8   
+     - https://www.youtube.com/watch?v=VF3TI4Pj_kM
+
   1. Clone this repository. Execute these commands in Git-Bash   
      - ` cd /C/Repos`
      - ` git clone git clone https://github.com/robinmattern/json-server-tutorial.git` 
@@ -24,5 +28,8 @@
      - Select the file: `./client1/1c1_blog-client-app/index.html`
      - Right-click to `Open with Live Server`
      - Create, view and/or delete a blog post  
-    
+
+The code has been placed in the following `formR` folder structure
+
+  ![filelist](._2/!2__Runtime%20Files%20for%20Net%20Ninja's%20Json-Server%20Tutorial/fr21212.03_Json-Tutorial_filelist.png)
     
