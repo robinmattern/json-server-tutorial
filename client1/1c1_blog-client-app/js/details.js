@@ -13,6 +13,8 @@ const renderDetails = async () => {
   const template = `
     <h1>${post.title}</h1>
     <p>${post.body}</p>
+    <p>${post.likes} likes</p>
+
   `
 
   container.innerHTML = template;
