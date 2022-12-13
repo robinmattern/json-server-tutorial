@@ -4,16 +4,50 @@ const searchForm = document.querySelector('.search');
 
 const renderPosts = async (term) => {
   console.log(term);
-  let uri = 'http://localhost:3000/posts?_sort=likes&_order=desc';
+  let uri = 'http://localhost:3000/members';
   if (term) {
     uri += `&q=${term}`
   }
 
-  const res = await fetch(uri);
-  const posts = await res.json();
-  console.log(posts);
+  var res = await fetch(uri);
+  var members = await res.json();
+      console.log( members );
 
+//   var  aHTML    =  members.sort( sortitem ).map( fmtMember ).join( "\n" )
+ var  members  =  members.sort( sortitem ).map( fmtMember ) 
+ var  template =  members.join( "\n" )
+
+// ------------------------------------------------------------------------------
+
+ function  fmtMember( pMember, i ) {
+
+      var  aClass   =            i % 2 == 1 ? "row-even" : "row-odd"
+//     var  aClass   = "row-" + ( i % 2      ?     "even" :     "odd" )
+//     var  aClass   =   (  `class="row-even"` )
+
+      var  aMI      =     pMember.Middlename;  aMI = ( aMI  > "" ) ?   ` ${ aMI.substr(0,1) }. ` : ""
+      var  aName    = `${ pMember.FirstName }${aMI} ${ pMember.LastName }`
+      var  aPhone   =     pMember.Phone1 + ( pMember.Phone2 > ""   ? `, ${ pMember.Phone2  }` : "" )
+           aPhone   =     aPhone == "null" ? "" : aPhone
+      var  aEmail   =     pMember.Email
+
+      var  aRow     = `  <tr Class="${ aClass }" id="R${ `${ i + 1 }`.padStart( 3, "0" ) }">\n`
+                    + `  <td class="name"><strong><a href="syschangepassword.js?username=${ aName }">${ aName }</a></strong></td>\n`
+                    + `  <td class="email"><small ><a href="mailto:${ aEmail }">Email Address</a></small></td>\n`
+                    + `  <td class="phone"><small >${ aPhone }&nbsp;&nbsp;&nbsp;</small></td>\n`
+                    + `</tr>\n`
+
+//          mHTMLs.push( aRow )
+//          aData    = aHeadRow + aRow
+           aData    = aRow
+   return  aData
+           }   // eof  fmtMember 
+     
+
+  /*
   let template = '';
+  members.forEach( member => { fmtMembers( member ) } )
+  
   posts.forEach(post => {
     template += `
       <div class="post">
@@ -24,7 +58,7 @@ const renderPosts = async (term) => {
       </div>
     `
   });
-
+*/
   container.innerHTML = template;
 }
 
@@ -35,3 +69,8 @@ searchForm.addEventListener('submit', async (e) => {
 })
 
 window.addEventListener('DOMContentLoaded', () => renderPosts());
+
+
+function  sortitem( a, b ) {                                                          // .(21209.04.1 RJS Beg Add SortItems)
+  return (a.LastName + a.FirstName) > (b.LastName + b.FirstName) ? 1 : -1
+          }                                                                           // .(21209.04.1 RJS End)

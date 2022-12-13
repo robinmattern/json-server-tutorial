@@ -2,7 +2,7 @@
   "name": "json-server-tutorial",
   "description": "Tutorial creating a simple APP using using json-server to create JSON data API",
   "version": "0.1.5",
-  "author": "Net Nninja",
+  "author": "Net Ninja",
   "license": "ISC",
   "dependencies": {
     "json-server": ""
